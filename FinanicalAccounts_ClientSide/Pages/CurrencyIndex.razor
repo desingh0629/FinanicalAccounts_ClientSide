@@ -1,0 +1,46 @@
+﻿@page "/currencyindex"
+@using FinancialAccounts.Model.Entities
+@using System.ComponentModel.DataAnnotations
+@using FinanicalAccountsClient.IRepository;
+@inject ICurrencyRepository curr
+
+<h4 class="text text-primary">Supplier Information</h4>
+<br />
+<div class="row">
+    <div class="col-md-6 row">
+        <div class="col-md-3">
+            <label for="name">Name</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" class="form-control" @bind="currency.CurrencyCode" id="code" />
+        </div>
+        <div class="col-md-3 mt-3">
+            <label for="contactNumber">Contact Number</label>
+        </div>
+        <div class="col-md-9 mt-3">
+
+            <input type="text" class="form-control" @bind="currency.CurrencyName" id="currencyName" />
+        </div>
+        <div class="col-md-3 mt-3">
+            <label for="email">Email</label>
+        </div>
+        <div class="col-md-9 mt-3">
+            <input type="email" class="form-control" @bind="currency.CurrencySymbol" id="symbol" />
+        </div>
+        
+        <div class="col-md-6 mt-6">
+        </div>
+        <div class="col-md-6 mt-3">
+            <button class="btn btn-primary" style="float:inline-end" @onclick="Generate">Generate</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    Currency currency = new();
+    async Task Generate()
+    {
+        var data = await curr.AddAsync(currency);
+    }
+}

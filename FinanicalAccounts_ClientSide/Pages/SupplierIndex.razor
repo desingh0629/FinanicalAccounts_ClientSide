@@ -1,0 +1,56 @@
+﻿@page "/supplierindex"
+@using FinancialAccounts.Model.Entities
+@using System.ComponentModel.DataAnnotations
+@using FinanicalAccountsClient.IRepository;
+@inject ISupplierRepository supp
+
+<h4 class="text text-primary">Customer Information</h4>
+<br />
+<div class="row">
+    <div class="col-md-6 row">
+        <div class="col-md-3">
+            <label for="name">Name</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" class="form-control" @bind="supplier.Name" id="name" />
+        </div>
+        <div class="col-md-3 mt-3">
+
+            <label for="contactNumber">Contact Number</label>
+        </div>
+        <div class="col-md-9 mt-3">
+
+            <input type="text" class="form-control" @bind="supplier.ContactNumber" id="contactNumber" />
+        </div>
+        <div class="col-md-3 mt-3">
+
+            <label for="email">Email</label>
+        </div>
+
+        <div class="col-md-9 mt-3">
+
+            <input type="email" class="form-control" @bind="supplier.Email" id="email" />
+        </div>
+        <div class="col-md-3 mt-3">
+
+            <label for="billingAddress">Billing Address</label>
+        </div>
+        <div class="col-md-9 mt-3">
+            <input type="text" class="form-control" @bind="supplier.BillingAddress" id="billingAddress" />
+        </div>
+        <div class="col-md-6 mt-6">
+        </div>
+        <div class="col-md-6 mt-3">
+            <button class="btn btn-primary" style="float:inline-end" @onclick="Generate">Generate</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    Supplier supplier = new();
+    async Task Generate()
+    {
+        var data = await supp.AddAsync(supplier);
+    }
+}

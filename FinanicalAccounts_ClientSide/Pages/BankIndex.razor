@@ -1,0 +1,56 @@
+﻿@page "/bankindex"
+@using FinancialAccounts.Model.Entities
+@using System.ComponentModel.DataAnnotations
+@using FinanicalAccountsClient.IRepository;
+@inject IBankRepository bnk
+
+<h4 class="text text-primary">Bank</h4>
+<br />
+<div class="row">
+    <div class="col-md-6 row">
+        <div class="col-md-3">
+            <label for="AccountNumber">Account No</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" class="form-control" @bind="bankAccount.AccountNumber" id="name" />
+        </div>
+        <div class="col-md-3 mt-3">
+
+            <label for="BankName">Bank Name</label>
+        </div>
+        <div class="col-md-9 mt-3">
+
+            <input type="text" class="form-control" @bind="bankAccount.BankName" id="BankName" />
+        </div>
+        <div class="col-md-3 mt-3">
+
+            <label for="Branch">Branch</label>
+        </div>
+
+        <div class="col-md-9 mt-3">
+
+            <input type="text" class="form-control" @bind="bankAccount.Branch" id="Branch" />
+        </div>
+        <div class="col-md-3 mt-3">
+
+            <label for="Balance">Balance</label>
+        </div>
+        <div class="col-md-9 mt-3">
+            <input type="text" class="form-control" @bind="bankAccount.Balance" id="balance" />
+        </div>
+        <div class="col-md-6 mt-6">
+        </div>
+        <div class="col-md-6 mt-3">
+            <button class="btn btn-primary" style="float:inline-end" @onclick="Generate">Generate</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    BankAccount bankAccount = new();
+    async Task Generate()
+    {
+        var data = await bnk.AddAsync(bankAccount);
+    }
+}

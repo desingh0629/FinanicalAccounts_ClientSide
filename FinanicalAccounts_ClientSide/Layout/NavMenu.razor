@@ -1,0 +1,219 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Accounts</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="loginindex" Match="NavLinkMatch.All">
+                @* <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home *@
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Login
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+
+            <NavLink class="nav-link" @onclick="ToggleTreeViewForSettings">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Settings
+            </NavLink>
+            @if (showTreeViewForSettings)
+            {
+                <div id="treeView">
+                    @* <NavLink class="nav-link" href="loginindex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Login
+                    </NavLink> *@
+                    <NavLink class="nav-link" href="user">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> User
+                    </NavLink>
+                    <NavLink class="nav-link" href="customerindex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Customer
+                    </NavLink>
+                    <NavLink class="nav-link" href="supplierindex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Supplier
+                    </NavLink>
+                    <NavLink class="nav-link" href="currencyindex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Currency
+                    </NavLink> 
+                    <NavLink class="nav-link" href="bankindex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Bank
+                    </NavLink>
+                    <NavLink class="nav-link" href="productindex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Product
+                    </NavLink>
+                    <NavLink class="nav-link" href="PrimaryGroupIndex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Set Primary Code
+                    </NavLink>
+                    <NavLink class="nav-link" href="AccountheadGroupIndex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> New Account Group
+                    </NavLink>
+                    <NavLink class="nav-link" href="Accounthead">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Accounthead
+                    </NavLink>
+                    <NavLink class="nav-link" href="FinancialIndex">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Financial year
+                    </NavLink>
+                    <NavLink class="nav-link" href="ChartOfAccount">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Chart Of accounts
+                    </NavLink>
+                </div>
+            }
+        </div>
+        <div class="nav-item px-3">
+
+            <NavLink class="nav-link" @onclick="ToggleTreeViewForVoucher">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Voucher
+            </NavLink>
+            @if (showTreeViewForVoucher)
+            {
+                <div id="treeView">
+                    <NavLink class="nav-link" href="generalvoucher">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> General Voucher
+                    </NavLink>
+                    <NavLink class="nav-link" href="purchaseregister">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Purchase Register
+                    </NavLink>
+                    <NavLink class="nav-link" href="salesregister">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Sales Registre
+                    </NavLink>
+                    <NavLink class="nav-link" href="bankpayment">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Bank Payment
+                    </NavLink>
+                    <NavLink class="nav-link" href="bankpayment">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Bank Receipt
+                    </NavLink>
+                    <NavLink class="nav-link" href="cashpayment">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Cash Payment
+                    </NavLink>
+                    <NavLink class="nav-link" href="cashreceipt">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Cash Receipt
+                    </NavLink>
+                    <NavLink class="nav-link" href="contravoucher">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Contra Voucher
+                    </NavLink>
+                    <NavLink class="nav-link" href="creditnote">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Credit Note
+                    </NavLink>
+                    <NavLink class="nav-link" href="debitnote">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Debit Note
+                    </NavLink>
+                    <NavLink class="nav-link" href="deletevoucher">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Delete Voucher
+                    </NavLink>
+                </div>
+            }
+        </div>
+
+        <div class="nav-item px-3">
+
+            <NavLink class="nav-link" @onclick="ToggleTreeViewForReport">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Report
+            </NavLink>
+            @if (showTreeViewForReport)
+            {
+                <div id="treeView">
+                    <NavLink class="nav-link" href="ledgerrepoer">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Ledger Repoer
+                    </NavLink>
+                    <NavLink class="nav-link" href="grouptrialbalance">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Group Trial Balance
+                    </NavLink>
+                    <NavLink class="nav-link" href="trialbalance">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Trial Balance
+                    </NavLink>
+                    <NavLink class="nav-link" href="finalaccount">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Final Account
+                    </NavLink>
+                    <NavLink class="nav-link" href="finalaccountnew">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Final Account New
+                    </NavLink>
+                    <NavLink class="nav-link" href="groupsummary">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Group Summary
+                    </NavLink>
+                    <NavLink class="nav-link" href="daybook">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Day Book
+                    </NavLink>
+                    <NavLink class="nav-link" href="bankreconciliation">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Bank Reconciliation
+                    </NavLink>
+                    <NavLink class="nav-link" href="salesregisterreport">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Sales Register
+                    </NavLink>
+                    <NavLink class="nav-link" href="purchaseregisterreport">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Purchase Register
+                    </NavLink>
+                    <NavLink class="nav-link" href="openingbalancereport">
+                        <span style="margin-left: 34px;" aria-hidden="true"></span> Opening Balance
+                    </NavLink>
+                </div>
+            }
+        </div>
+
+
+        @*   <div class="nav-item px-3">
+        <NavLink class="nav-link" href="counter">
+        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+        </NavLink>
+        </div> *@
+        @*   <div class="nav-item px-3">
+        <NavLink class="nav-link" href="weather">
+        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+        </NavLink>
+        </div> *@
+
+
+        @*  <div class="nav-item px-3">
+        <NavLink class="nav-link" href="user">
+        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> User
+        </NavLink>
+        </div>
+        <div class="nav-item px-3">
+        <NavLink class="nav-link" href="loginindex">
+        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Login
+        </NavLink>
+        </div> *@
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="logout">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Logout
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+    bool showTreeViewForSettings = false;
+    bool showTreeViewForVoucher = false;
+    bool showTreeViewForReport = false;
+
+    void ToggleTreeViewForSettings()
+    {
+        showTreeViewForSettings = !showTreeViewForSettings;
+        showTreeViewForVoucher = false;
+        showTreeViewForReport = false;
+    }
+    void ToggleTreeViewForVoucher()
+    {
+        showTreeViewForSettings = false;
+        showTreeViewForVoucher = !showTreeViewForVoucher;
+        showTreeViewForReport = false;
+
+    }
+    void ToggleTreeViewForReport()
+    {
+        showTreeViewForSettings = false;
+        showTreeViewForVoucher = false;
+        showTreeViewForReport = !showTreeViewForReport;
+    }
+}

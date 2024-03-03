@@ -1,0 +1,53 @@
+﻿@page "/productindex"
+@using FinancialAccounts.Model.Entities
+@using System.ComponentModel.DataAnnotations
+@using FinanicalAccountsClient.IRepository;
+@inject IProductRepository prod
+<h3>Add Product</h3>
+
+
+<div class="row">
+    <div class="col-lg-6 row">
+        <div class="col-md-3">
+            <label for="name">Name:</label>
+        </div>
+        <div class="col-md-9">
+
+            <input type="text" class="form-control" id="name" @bind="Product.Name" />
+        </div>
+        <div class="col-md-3  mt-3">
+            <label for="description">Description:</label>
+        </div>
+        <div class="col-md-9  mt-3">
+
+            <input type="text" class="form-control" id="description" @bind="Product.Description" />
+        </div>
+        <div class="col-md-3  mt-3">
+            <label for="unitPrice">Unit Price:</label>
+        </div>
+        <div class="col-md-9  mt-3">
+
+            <input type="number" class="form-control" id="unitPrice" @bind="Product.UnitPrice" />
+        </div>
+       
+        <div class="col-md-6 mt-6">
+        </div>
+        <div class="col-md-6 mt-3">
+            <button class="btn btn-primary" style="float:inline-end" @onclick="Generate">Generate</button>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    Product Product = new();
+    bool isSaved { get; set; }
+   
+    async Task Generate()
+    {
+        var data = await prod.AddAsync(Product);
+        isSaved = true;
+    }
+}
+
